@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Arcade</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="Projekt css.css" />
+  </head>
+  <body>
+    <h1>🎲 Dice Arcade 🎲</h1>
+    <p>10 rolls • double 2×points • double 6 = dodatkowy rzut</p>
+
+    <div class="layout">
+      <section class="game-area">
+        <div class="scoreboard">
+          <p id="sum">Suma: —</p>
+          <p id="lastPoints">Ostatni rzut: +0</p>
+          <p id="currentScore">Wynik rundy: 0</p>
+          <p id="rollsLeft">Pozostałe rzuty: 10</p>
+        </div>
+
+        <div class="dice">
+          <div class="die" id="die1"><i class="fa-solid fa-dice-one"></i></div>
+          <div class="die" id="die2"><i class="fa-solid fa-dice-six"></i></div>
+        </div>
+
+        <div class="controls">
+          <button class="btn" id="rollBtn" onclick="rollDice()">
+            Rzuć kostkami
+          </button>
+          <button class="btn" id="newRoundBtn" onclick="newRound()" disabled>
+            Nowa runda
+          </button>
+          <button class="btn" onclick="resetLeaderboard()">Reset Top 10</button>
+        </div>
+      </section>
+
+      <aside class="leaderboard-area">
+        <h2>🏆 Top 10 🏆</h2>
+        <ol id="leaderboardList" class="leaderboard-list"></ol>
+      </aside>
+    </div>
+
+    <!-- MODAL -->
+    <div id="nameModal" class="modal hidden">
+      <div class="modal-content">
+        <h3>Podaj inicjały</h3>
+        <p>Wynik: <span id="modalScore">0</span></p>
+        <input id="playerName" maxlength="3" placeholder="AAA" />
+        <div class="modal-controls">
+          <button class="btn" id="submitNameBtn">Zapisz</button>
+          <button class="btn" id="skipNameBtn">Pomiń</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="Projekt js.js"></script>
+  </body>
+</html>
+
+
+
